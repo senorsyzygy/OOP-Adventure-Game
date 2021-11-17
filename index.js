@@ -10,7 +10,7 @@ window.onload = function() {
     document.getElementById('bossButton2').style.display = "none"
     document.getElementById('needlerFight').style.display = "none"
     document.getElementById('slimeFight').style.display = "none"
-    document.getElementById('lostArea').style.display = "none"
+    document.getElementById('defeatArea').style.display = "none"
     document.getElementById('victoryArea').style.display = "none"
 }
 
@@ -49,7 +49,7 @@ const Smog = new Character(
     "Smog",
     "Formless masses of mist such as you might see on a spring morning. But beware - they've been made into monsters by unpleasant arcane forces.",
     22,
-    15,
+    18,
     15
 )
 
@@ -217,7 +217,11 @@ function fightBattle2(){
         document.getElementById("heroHealth").innerHTML = "Health: " + Hero.health;
     }
 }
-
+function defeatArea(){
+    document.getElementById('bossArea').style.display = "none"
+    document.getElementById('defeatArea').style.display = "inline-block"
+    defeatMusic()
+}
 function bossFightBattle(){
     damageCalculation(Smog)
     if (damage >= Smog.health){
@@ -227,6 +231,7 @@ function bossFightBattle(){
         document.getElementById('bossArea').style.display = "none"
         document.getElementById('victoryArea').style.display = "inline-block"
         victoryMusic()
+        msg = "Well done " + Hero.name + ". You have successfully passed the coming of age ceremony and managed to clear a nasty enemy off the mountain, congratulations.";
     } else if (damage < Smog.health) {
         Smog.health = (Smog.health - damage)
         alert("You dealt " + damage + " damage to the Smog!")
@@ -235,13 +240,10 @@ function bossFightBattle(){
         smogDamage = ((Smog.attack / 2) - (Hero.defence / 4)) + smogRandom
         Hero.health = (Hero.health - smogDamage)
         alert("Smog attacks back! It deals " + smogDamage +" damage to you!")
-        document.getElementById("heroHealth2").innerHTML = "Health: " + Hero.health;
-        msg = "Well done " + Hero.name + ". You have successfully passed the coming of age ceremony and managed to clear a nasty enemy off the mountain, congratulations.";
-        if (Hero.health == 0){
-            document.getElementById('bossArea').style.display = "none"
-            document.getElementById('lostArea').style.display = "inline-block"
-            defeatMusic()
-        }
+        document.getElementById("heroHealth2").innerHTML = "Health: " + Hero.health; 
+        if(Hero.health <= 0){
+            defeatArea()
+        } 
     }
     document.getElementById("congratsMsg").innerHTML = msg
 }
