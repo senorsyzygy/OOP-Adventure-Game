@@ -29,20 +29,15 @@ body{
     max-width: 900px;
     margin:auto;
 }
-#gameArea{
-
-}
 #statusBars{
     background-color: rgba(128, 128, 128, 0.5);
     margin:auto;
     text-align: center;
-    padding:10px;
     min-width: 50%
 }
 #statusBars2{
     background-color: rgba(128, 128, 128, 0.5);
     margin:auto;
     text-align: center;
-    padding:10px;
     min-width: 50%;
 }

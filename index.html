@@ -37,6 +37,7 @@
                         <input type="button" id="bossButton2" value="Fight the boss" class="btn btn-primary btn-lg text-center" onclick="beginBossBattle()"/>
                         <input type="button" id="slimeFight" value="Fight the Slime" class="btn btn-primary btn-lg text-center" onclick="fightBattle1()"/>
                         <input type="button" id="needlerFight" value="Fight the Needler" class="btn btn-primary btn-lg text-center" onclick="fightBattle2()"/>
+                        <input type="button" id="chestButton" value="Open treasure" class="btn btn-primary btn-lg text-center" onclick="pickUpItem()"/>
                         <p><small>type your inputs below</small></p>
                         <input id="movementInput" type="text" />
                         <button onclick="submitHandler()">Move</button>
@@ -48,7 +49,8 @@
                         </div>
                         <div class="col-6">
                         <h3 id="heroName"></h3>
-                        <h3 id="heroHealth"></h3><br>
+                        <h3 id="heroHealth"></h3>
+                        <h3 id="heroInventory"></h3><br>
                         </div>
                         </div>
                         <div class="row">
@@ -67,7 +69,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p><small>type forward, backward, right, and left in order to move around the rooms</small></p>
+                        <p><small>type forward, back, right, and left in order to move around the rooms</small></p>
                         <audio autoplay loop id="audio">
                             <source src="music/defaultTheme.mp3" type="audio/mpeg">
                           Your browser does not support the audio element.
@@ -85,6 +87,7 @@
                         <h4>Prepare to fight for your life as this enemy kind of seems like a boss character!</h4>
                         <br>
                         <input type="button" id="smogFight" value="Fight the Boss" class="btn btn-primary btn-lg text-center" onclick="bossFightBattle()"/>
+                        <input type="button" id="healButton" value="Heal yourself" class="btn btn-success btn-lg text-center" onclick="useHealthPotion()"/>
                     </div>
                     <div class="col-sm-12 col-lg-6 px-4" id="statusBars2">
                         <div class="row">
@@ -93,7 +96,8 @@
                             </div>
                             <div class="col-6">
                             <h3 id="heroName2"></h3>
-                            <h3 id="heroHealth2"></h3><br>
+                            <h3 id="heroHealth2"></h3>
+                            <h3 id="heroInventory2"></h3><br>
                             </div>
                         </div>
                         <div class="row">
@@ -113,8 +117,12 @@
             <div id="defeatArea">
                 <div class="col-12">
                     <h1 class="display-1">You died!</h1>
+                    <br>
                     <h3>Your journey ends here unfortunately.</h3>
+                    <br>
                     <p>When you are feeling brave enough feel free to try again by refreshing the page.</p>
+                    <br>
+                    <p class="lead">Hint: There may or may not be a chest with a useful item hidden in one of the rooms</p>
                 </div>
             </div>
             <!--Successfully beating the boss will lead here-->
