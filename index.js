@@ -54,7 +54,7 @@ const Smog = new Character(
     "Smog",
     "Formless masses of mist such as you might see on a spring morning. But beware - they've been made into monsters by unpleasant arcane forces.",
     22,
-    19,
+    20,
     15,
     ""
 )
