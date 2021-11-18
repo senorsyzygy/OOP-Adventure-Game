@@ -145,7 +145,7 @@ const Stairs = new Room(
 )
 const Peak = new Room(
     "Top of mountain stairs",
-    "As you climb the stairs you feel like there is something dangerous lurking beyond the exit, maybe it's best to fully explore the mountains rooms before going forward?",
+    "As you climb the stairs you feel like there is something dangerous lurking beyond the exit, you feel as if you cannot move any further without exploring the rest of the mountain beforehand",
     "",
     {}
 )
@@ -177,6 +177,7 @@ let current = Base
 function bossBattle(){
     if (Slime.health == 0 && Needler.health == 0){
         document.getElementById('bossButton2').style.display = "inline-block"
+        Peak.description = "You've cleared out the enemies, you now feel as if you can proceed outside of the passageway and onto the peak of the mountain"
     } else {
         document.getElementById('bossButton1').style.display = "inline-block"
     }
