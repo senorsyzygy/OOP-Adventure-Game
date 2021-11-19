@@ -13,6 +13,7 @@ window.onload = function() {
     document.getElementById('defeatArea').style.display = "none"
     document.getElementById('victoryArea').style.display = "none"
     document.getElementById("chestButton").style.display = "none"
+    pauseOnLoad()
 }
 //Sets up character objects
 class Character {
@@ -370,10 +371,15 @@ function beginBossBattle() {
         document.getElementById("healButton").style.display = "inline-block"
     }
 }
+//Stops music from autoplaying on page load
+function pauseOnLoad(){
+    let music = document.getElementById('audio')
+    music.pause()
+}
 //Autoplays music but at half volume
 function startMusic(){
     let music = document.getElementById('audio')
-    music.volume = 0.35
+    music.volume = 0.2
     music.play();  
 }
 //Stops previous music and plays boss theme
@@ -382,7 +388,7 @@ function bossMusic(){
     music.pause()
     music.setAttribute("src","music/bossTheme.mp3")
     music.load();
-    music.volume = 0.35
+    music.volume = 0.2
     music.play();
 }
 //Stops previous music and plays victory theme
@@ -391,7 +397,7 @@ function victoryMusic(){
     music.pause()
     music.setAttribute("src","music/victoryTheme.mp3")
     music.load();
-    music.volume = 0.35
+    music.volume = 0.2
     music.play();
 }
 //Stops previous music and plays defeat theme
@@ -400,6 +406,6 @@ function defeatMusic(){
     music.pause()
     music.setAttribute("src","music/defeatTheme.mp3")
     music.load();
-    music.volume = 0.35
+    music.volume = 0.2
     music.play();
 }
